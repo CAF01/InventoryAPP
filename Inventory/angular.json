@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "inventoryApp": {
+    "Inventory": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "sass"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,20 +13,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/inventory-app",
+            "outputPath": "dist/inventory",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "sass",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -65,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "inventoryApp:build:production"
+              "browserTarget": "Inventory:build:production"
             },
             "development": {
-              "browserTarget": "inventoryApp:build:development"
+              "browserTarget": "Inventory:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "inventoryApp:build"
+            "browserTarget": "Inventory:build"
           }
         },
         "test": {
@@ -87,13 +82,12 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "sass",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.css"
             ],
             "scripts": []
           }
