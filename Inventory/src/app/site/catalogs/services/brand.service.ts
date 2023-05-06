@@ -1,0 +1,48 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Subject, Observable, takeUntil } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { AddBrandRequest } from '../models/requests/add-brand-request';
+import { AddBrandResponse } from '../models/responses/add-brand-response';
+import { UpdateBrandRequest } from '../models/requests/update-brand-request';
+import { UpdateBrandResponse } from '../models/responses/update-brand-response';
+import { UpdateStatusBrandRequest } from '../models/requests/update-status-brand-request';
+import { UpdateStatusBrandResponse } from '../models/responses/update-status-brand-response';
+import { GetBrandsResponse } from '../models/responses/get-brand-response';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BrandService {
+  controller = 'Catalogs';
+  private destroy$: Subject<void> = new Subject<void>();
+  
+  constructor(private _http: HttpClient) {}
+
+  AddBrand(request: AddBrandRequest): Observable<AddBrandResponse> {
+    return this._http.post<AddBrandResponse>(
+      `${environment.url_api}${this.controller}/create-brand`,
+      request
+    );
+  }
+
+  UpdateBrand(request: UpdateBrandRequest): Observable<UpdateBrandResponse> {
+    return this._http.put<UpdateBrandResponse>(
+      `${environment.url_api}${this.controller}/update-brand`,
+      request
+    ).pipe(takeUntil(this.destroy$));
+  } 
+
+  UpdateStatusBrand(request: UpdateStatusBrandRequest): Observable<UpdateStatusBrandResponse> {
+    return this._http.put<UpdateStatusBrandResponse>(
+      `${environment.url_api}${this.controller}/set-status-brand`,
+      request
+    ).pipe(takeUntil(this.destroy$));
+  } 
+
+  GetBrands(): Observable<GetBrandsResponse[]> {
+    return this._http.get<GetBrandsResponse[]>(
+      `${environment.url_api}${this.controller}/brand-list`
+    ).pipe(takeUntil(this.destroy$));
+  }  
+}

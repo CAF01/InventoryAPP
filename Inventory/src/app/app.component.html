@@ -1,1 +1,9 @@
+<div *ngIf="isLoading$  | async" class="fixed inset-0 z-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute max-w-xs mx-auto">
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <ng-lottie [options]="options"></ng-lottie>
+      </div>
+    </div>
+  </div>
 <router-outlet></router-outlet>
