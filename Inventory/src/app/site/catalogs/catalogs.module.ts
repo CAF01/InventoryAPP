@@ -8,6 +8,7 @@ import { AddLocationComponent } from './components/add-location/add-location.com
 import { GetLocationsComponent } from './components/get-locations/get-locations.component';
 import { GetBrandsComponent } from './components/get-brands/get-brands.component';
 import { GetCategoriesComponent } from './components/get-categories/get-categories.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { GetCategoriesComponent } from './components/get-categories/get-categori
   ],
   imports: [
     CommonModule,
-    CatalogsRoutingModule
+    CatalogsRoutingModule,
+    FormsModule, ReactiveFormsModule
   ]
 })
 export class CatalogsModule { }

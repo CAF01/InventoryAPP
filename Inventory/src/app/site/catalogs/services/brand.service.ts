@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, Observable, takeUntil } from 'rxjs';
+import { Subject, Observable, takeUntil, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AddBrandRequest } from '../models/requests/add-brand-request';
 import { AddBrandResponse } from '../models/responses/add-brand-response';
@@ -9,6 +9,7 @@ import { UpdateBrandResponse } from '../models/responses/update-brand-response';
 import { UpdateStatusBrandRequest } from '../models/requests/update-status-brand-request';
 import { UpdateStatusBrandResponse } from '../models/responses/update-status-brand-response';
 import { GetBrandsResponse } from '../models/responses/get-brand-response';
+import { UploadImageResponse } from '../models/responses/add-image-brand-response';
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +46,19 @@ export class BrandService {
       `${environment.url_api}${this.controller}/brand-list`
     ).pipe(takeUntil(this.destroy$));
   }  
+
+  uploadFile(data: File): Observable<UploadImageResponse> {
+    const formData = new FormData();
+    formData.append('formFile', data);
+  
+    return this._http.post<UploadImageResponse>(
+      `${environment.url_api}${this.controller}/upload-image`,
+      formData
+    ).pipe(
+      catchError((error: any) => {
+        console.error(error);
+        return throwError('Error al cargar el archivo');
+      })
+    );
+  }
 }

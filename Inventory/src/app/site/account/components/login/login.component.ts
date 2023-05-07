@@ -27,6 +27,11 @@ export class LoginComponent implements OnInit {
     ){}
 
   ngOnInit() {
+    const token = this.authService.getToken();
+    if(token && token.length>0)
+    {
+      this.router.navigate(['/home']);
+    }
     this.initLoginForm();
     this.isPageLoaded=true;
   }
@@ -51,7 +56,7 @@ export class LoginComponent implements OnInit {
     this.isProcessing=true;
 
     let data :LoginUserRequest = {} as LoginUserRequest;
-    data.email='Evan.af@hotmail.com';
+    data.email='jose.lopez@grupologa.com';
     data.password='Abcd1234';
     this.accountService.loginUser(data).subscribe(async (response: LoginUserResponse)=>
       {
@@ -87,6 +92,7 @@ export class LoginComponent implements OnInit {
   saveUserStorage(res: LoginUserResponse) {
     if (res) {
       this.authService.saveToken(this.f.email.value, res.token);
+      this.authService.saveUserID(res.userID.toString());
     } 
   }
 
