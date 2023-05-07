@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { GetCategoriesResponse } from '../../models/responses/get-category-response';
+import { CategoryService } from '../../services/category.service';
+import { firstValueFrom } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddCategoryRequest } from '../../models/requests/add-category-request';
+import { ToastrService } from 'ngx-toastr';
+import { AddCategoryResponse } from '../../models/responses/add-category-response';
 
 @Component({
   selector: 'app-get-categories',
@@ -6,11 +13,71 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./get-categories.component.scss']
 })
 export class GetCategoriesComponent implements OnInit {
+  categoryList : GetCategoriesResponse[] = [];
+  form:FormGroup = {} as FormGroup;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private categoryService : CategoryService,
+              private fb: FormBuilder,
+              private toastr:ToastrService) { 
+    this.form = this.fb.group({
+      description: ['', [Validators.required,Validators.minLength(3), Validators.maxLength(30)]]
+    });
   }
+  async ngOnInit(): Promise<void> {
+    await this.LoadCategories();
+  }
+
+  async LoadCategories() : Promise<boolean>
+  {
+    try 
+    {
+      const data = await firstValueFrom(this.categoryService.GetCategories());
+      if(data && data.length>0)
+      {
+        this.categoryList = data;
+        return true;
+      }
+    } 
+    catch (error) {
+      // manejar el error
+    }
+      return false;
+  }
+
+  addCategory(){
+    if(this.form.invalid)
+    {
+      this.toastr.error('Ingrese todos los campos');
+      return;
+    }
+    let request :AddCategoryRequest = {} as AddCategoryRequest;
+    request.description = this.f.description.value;
+
+    this.categoryService.AddCategory(request).subscribe({
+      next: (response: AddCategoryResponse) => {
+        if(response != null && response.categoryID>0)
+        {
+          this.toastr.success('Categoria agregada correctamente');
+          let newCategory :GetCategoriesResponse = {} as GetCategoriesResponse;
+          newCategory.description = request.description;
+          newCategory.active=true;
+          this.categoryList.push(newCategory);
+          this.form.reset();
+        }
+        },
+      error: (err) => {
+        if (err && err.status === 200) {
+          let url_image = JSON.stringify(err.error.text);
+        }
+      }
+    });
+  }
+
+  get f()
+  {
+    return this.form.controls;
+  }
+
 
 }
 

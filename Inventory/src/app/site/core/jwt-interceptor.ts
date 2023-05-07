@@ -22,7 +22,6 @@ export class JwtInterceptor implements HttpInterceptor {
     }
     // Obtener el token del servicio AuthService
     const authToken = this.authService.getToken();
-    debugger;
     // Clona la solicitud original y agrega el token en la cabecera Authorization
     const authRequest = req.clone({
       headers: req.headers.set('Authorization', `Bearer ${authToken}`)

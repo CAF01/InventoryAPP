@@ -24,7 +24,6 @@ export class GetBrandsComponent implements OnInit {
       if(data && data.length>0)
       {
         this.brandsList = data;
-        console.log(this.brandsList);
         return true;
       }
     } 
@@ -33,6 +32,7 @@ export class GetBrandsComponent implements OnInit {
     }
       return false;
   }
+
 
 }
 

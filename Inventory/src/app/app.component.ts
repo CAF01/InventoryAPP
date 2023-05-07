@@ -7,17 +7,18 @@ import { LoadLottieService } from './site/core/load-lottie-service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Inventario';
-  loading: boolean = false;
   options: AnimationOptions = {
     path: 'assets/animation/ready.json',
     autoplay: true,
     loop: true
   };
 
-  public isLoading$ = this.loadingService.spinnerVisible$;
+  public isLoading$ : any;
 
   constructor(private loadingService: LoadLottieService) {}
   
+  ngOnInit(): void {
+  }
 }

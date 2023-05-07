@@ -15,6 +15,15 @@ import { Injectable } from "@angular/core";
       return true;
     }
 
+    saveUserID(id: string) {
+      localStorage.setItem('userID',id); // Guarda el token en el almacenamiento local
+      return true;
+    }
+
+    getUserID(){
+      return localStorage.getItem('userID');
+    }
+
     getToken(){
       return localStorage.getItem('token');
     }
