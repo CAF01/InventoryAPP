@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetCategoriesResponse } from '../../models/responses/get-category-response';
 import { CategoryService } from '../../services/category.service';
-import { firstValueFrom } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddCategoryRequest } from '../../models/requests/add-category-request';
 import { ToastrService } from 'ngx-toastr';
@@ -23,25 +22,18 @@ export class GetCategoriesComponent implements OnInit {
       description: ['', [Validators.required,Validators.minLength(3), Validators.maxLength(30)]]
     });
   }
-  async ngOnInit(): Promise<void> {
-    await this.LoadCategories();
+  
+  ngOnInit() {
+    this.LoadCategories();
   }
 
-  async LoadCategories() : Promise<boolean>
+  LoadCategories()
   {
-    try 
-    {
-      const data = await firstValueFrom(this.categoryService.GetCategories());
-      if(data && data.length>0)
-      {
-        this.categoryList = data;
-        return true;
-      }
-    } 
-    catch (error) {
-      // manejar el error
-    }
-      return false;
+    this.categoryService.GetCategories().subscribe({
+      next: (response: GetCategoriesResponse[]) => {
+        this.categoryList = response;
+        }
+    });
   }
 
   addCategory(){

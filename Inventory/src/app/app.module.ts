@@ -9,13 +9,9 @@ import { AuthGuard } from './site/guard/auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './site/core/jwt-interceptor';
 import { AuthService } from './site/core/auth.service';
-import lottie from 'lottie-web';
-import { LottieModule } from 'ngx-lottie';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
-export function playerFactory() {
-  return lottie;
-}
 
 @NgModule({
   declarations: [
@@ -31,7 +27,7 @@ export function playerFactory() {
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
-    LottieModule.forRoot({ player: playerFactory }),
+    NgxSpinnerModule
     
   ],
   providers: [AuthGuard,

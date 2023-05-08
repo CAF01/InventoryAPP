@@ -3,21 +3,21 @@ import { AuthService } from "./auth.service";
 import { Router } from "@angular/router";
 import { catchError, finalize, throwError } from "rxjs";
 import { Injectable } from "@angular/core";
-import { LoadLottieService } from "./load-lottie-service";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
     constructor(private authService: AuthService,
-                private spinnerService : LoadLottieService,
-                private router : Router) {}
+                private router : Router,
+                private spiner: NgxSpinnerService) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-      this.spinnerService.show();
+      this.spiner.show();
         
     // Si la solicitud es un inicio de sesión, omite el token
     if (req.url.includes('login') || req.url.includes('access')) {
       return next.handle(req).pipe(finalize(() => {
-        this.spinnerService.hide();
+        this.spiner.hide();
       }));
     }
     // Obtener el token del servicio AuthService
@@ -29,13 +29,13 @@ export class JwtInterceptor implements HttpInterceptor {
     // Devuelve la solicitud con la cabecera de autorización agregada
     return next.handle(authRequest).pipe(
       catchError((error: HttpErrorResponse) => {
-        this.spinnerService.hide();
+        this.spiner.hide();
         if (error.status === 401) {
           this.authService.logout();
           this.router.navigate(['/login']);
           // Manejar error de autenticación
         } else if (error.status === 403) {
-          this.spinnerService.hide();
+          this.spiner.hide();
           this.router.navigate(['errors/unauthorized']);
           // Manejar error de permisos
         } else {
@@ -44,7 +44,7 @@ export class JwtInterceptor implements HttpInterceptor {
         return throwError(() => new HttpErrorResponse({ error }));
       }),
       finalize(() => {
-        this.spinnerService.hide();
+        this.spiner.hide();
       })
     );
   }
