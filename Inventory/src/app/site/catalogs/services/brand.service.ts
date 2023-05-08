@@ -15,45 +15,48 @@ import { UploadImageResponse } from '../models/responses/add-image-brand-respons
   providedIn: 'root'
 })
 export class BrandService {
-  controller = 'Catalogs';
+  Brandscontroller = 'Brands';
   private destroy$: Subject<void> = new Subject<void>();
   
   constructor(private _http: HttpClient) {}
 
   AddBrand(request: AddBrandRequest): Observable<AddBrandResponse> {
     return this._http.post<AddBrandResponse>(
-      `${environment.url_api}${this.controller}/create-brand`,
+      `${environment.url_api}${this.Brandscontroller}/create-brand`,
       request
     );
   }
 
   UpdateBrand(request: UpdateBrandRequest): Observable<UpdateBrandResponse> {
     return this._http.put<UpdateBrandResponse>(
-      `${environment.url_api}${this.controller}/update-brand`,
+      `${environment.url_api}${this.Brandscontroller}/update-brand`,
       request
     ).pipe(takeUntil(this.destroy$));
   } 
 
   UpdateStatusBrand(request: UpdateStatusBrandRequest): Observable<UpdateStatusBrandResponse> {
     return this._http.put<UpdateStatusBrandResponse>(
-      `${environment.url_api}${this.controller}/set-status-brand`,
+      `${environment.url_api}${this.Brandscontroller}/set-status-brand`,
       request
     ).pipe(takeUntil(this.destroy$));
   } 
 
   GetBrands(): Observable<GetBrandsResponse[]> {
     return this._http.get<GetBrandsResponse[]>(
-      `${environment.url_api}${this.controller}/brand-list`
+      `${environment.url_api}${this.Brandscontroller}/brand-list`
     ).pipe(takeUntil(this.destroy$));
   }  
 
   uploadFile(data: File): Observable<UploadImageResponse> {
+    const header = new HttpHeaders();
+    header.append('Content-Type', 'multipart/form-data');
+
     const formData = new FormData();
     formData.append('formFile', data);
   
     return this._http.post<UploadImageResponse>(
-      `${environment.url_api}${this.controller}/upload-image`,
-      formData
+      `${environment.url_api}${this.Brandscontroller}/upload-image`,
+      formData,{headers: header}
     ).pipe(
       catchError((error: any) => {
         console.error(error);

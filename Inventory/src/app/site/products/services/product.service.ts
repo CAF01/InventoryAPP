@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable, takeUntil, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -39,12 +39,15 @@ export class ProductService {
   }  
 
   uploadFile(data: File): Observable<UploadImageResponse> {
+    const header = new HttpHeaders();
+    header.append('Content-Type', 'multipart/form-data');
+    
     const formData = new FormData();
     formData.append('formFile', data);
   
     return this._http.post<UploadImageResponse>(
       `${environment.url_api}${this.controller}/upload-image`,
-      formData
+      formData,{headers: header}
     ).pipe(
       catchError((error: any) => {
         console.error(error);

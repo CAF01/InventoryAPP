@@ -14,34 +14,34 @@ import { UpdateStatusLocationResponse } from '../models/responses/update-status-
   providedIn: 'root'
 })
 export class LocationService {
-  controller = 'Catalogs';
+  LocationsController = 'Locations';
   private destroy$: Subject<void> = new Subject<void>();
   
   constructor(private _http: HttpClient) {}
   AddLocation(request: AddLocationRequest): Observable<AddLocationResponse> {
     return this._http.post<AddLocationResponse>(
-      `${environment.url_api}${this.controller}/create-location`,
+      `${environment.url_api}${this.LocationsController}/create-location`,
       request
     );
   }
 
   UpdateLocation(request: UpdateLocationRequest): Observable<UpdateLocationResponse> {
     return this._http.put<UpdateLocationResponse>(
-      `${environment.url_api}${this.controller}/update-location`,
+      `${environment.url_api}${this.LocationsController}/update-location`,
       request
     ).pipe(takeUntil(this.destroy$));
   } 
 
   UpdateStatusLocation(request: UpdateStatusLocationRequest): Observable<UpdateStatusLocationResponse> {
     return this._http.put<UpdateStatusLocationResponse>(
-      `${environment.url_api}${this.controller}/set-location-status`,
+      `${environment.url_api}${this.LocationsController}/set-location-status`,
       request
     ).pipe(takeUntil(this.destroy$));
   } 
 
   GetLocations(): Observable<GetLocationResponse[]> {
     return this._http.get<GetLocationResponse[]>(
-      `${environment.url_api}${this.controller}/location-list`
+      `${environment.url_api}${this.LocationsController}/location-list`
     ).pipe(takeUntil(this.destroy$));
   }  
 }
