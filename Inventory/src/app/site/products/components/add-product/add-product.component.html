@@ -1,0 +1,96 @@
+<div class="w-full pt-2 px-2 sm:px-6 md:px-8 lg:pl-72">
+<!-- Card Section -->
+<div class="max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <form [formGroup]="form">
+      <!-- Card -->
+      <div class="bg-white rounded-xl shadow dark:bg-slate-900">
+  
+        <div class="pt-0 p-4 sm:pt-0 sm:p-7">
+          <!-- Grid -->
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label for="af-submit-app-project-name" class="inline-block text-sm font-medium text-gray-800 mt-2.5 dark:text-gray-200">
+                Nombre de producto
+              </label>
+  
+              <input id="af-submit-app-project-name" formControlName="ProductName" type="text" class="py-3 px-3 pr-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Bolsa plana">
+            </div>
+
+            <div class="space-y-2">
+                <label for="af-submit-app-description" class="inline-block text-sm font-medium text-gray-800 mt-2.5 dark:text-gray-200">
+                  Description
+                </label>
+    
+                <input id="af-submit-app-project-name" type="text" class="py-3 px-3 pr-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" formControlName="Description" placeholder="Bolsa muy trasparente (entre más trasparente, mejor calidad). De forma rectangular, en presentación individual (suelta).">
+              </div>
+  
+            <div class="space-y-2">
+                <div class="flex">
+                    <div class="w-1/2 pr-2">
+                      <input type="text" formControlName="Model" class="py-3 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Modelo">
+                    </div>
+                    <div class="w-1/2 pl-2">
+                      <div class="relative">
+                        <input type="text" id="hs-input-with-leading-and-trailing-icon" formControlName="Price" name="hs-input-with-leading-and-trailing-icon" class="py-3 px-4 pl-9 pr-16 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="0.00">
+                        <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
+                          <span class="text-gray-500">$</span>
+                        </div>
+                        <div class="absolute inset-y-0 right-0 flex items-center pointer-events-none z-20 pr-4">
+                          <span class="text-gray-500">MXN</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+  
+            <div class="space-y-2">
+              <label for="af-submit-app-upload-images" class="inline-block text-sm font-medium text-gray-800 mt-2.5 dark:text-gray-200">
+                Adjuntar imagen
+              </label>
+  
+              <label for="af-submit-app-upload-images" class="group p-4 sm:p-7 block cursor-pointer text-center border-2 border-dashed border-gray-200 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 dark:border-gray-700">
+                <input id="af-submit-app-upload-images" (change)="loadImage($event)" accept="image/*" type="file" class="sr-only">
+                <span class="mt-2 block text-sm text-gray-800 dark:text-gray-200">
+                  Busca en tu equipo o <span class="group-hover:text-blue-700 text-blue-600">Desplaza la imagen</span>
+                </span>
+                <span class="mt-1 block text-xs text-gray-500">
+                  Tamaño máximo de archivo: 1MB
+                </span>
+              </label>
+            </div>
+  
+            <div class="space-y-2">
+              <label for="af-submit-app-category" class="inline-block text-sm font-medium text-gray-800 mt-2.5 dark:text-gray-200">
+                Categoria
+              </label>
+  
+              <select id="af-submit-app-category" class="py-2 px-3 pr-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" formControlName="Category">
+                <option selected value=0>Seleccionar categoria</option>
+                <option *ngFor="let category of categories" [value]="category.categoryID">{{ category.description }}</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label for="af-submit-app-category" class="inline-block text-sm font-medium text-gray-800 mt-2.5 dark:text-gray-200">
+                Marca
+              </label>
+  
+              <select id="af-submit-app-category" class="py-2 px-3 pr-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" formControlName="Brand">
+                <option selected value=0>Seleccionar marca</option>
+                <option *ngFor="let brand of brands" [value]="brand.brandID">{{ brand.description }}</option>
+              </select>
+            </div>
+  
+          </div>
+
+  
+          <div class="mt-5 flex justify-center gap-x-2">
+            <button type="button" [disabled]="form.invalid || !validImage" (click)="addProduct()" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 disabled:bg-gray-400 disabled:text-gray-500 disabled:cursor-not-allowed">
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

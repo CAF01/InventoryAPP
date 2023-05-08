@@ -1,0 +1,30 @@
+@keyframes menu-enter {
+    from {
+      transform: opacity-0 scale-95;
+    }
+    to {
+      transform: opacity-100 scale-100;
+    }
+  }
+  
+  @keyframes menu-leave {
+    from {
+      transform: opacity-100 scale-100;
+    }
+    to {
+      transform: opacity-0 scale-95;
+    }
+  }
+  
+  .menuAnimation {
+    animation-duration: 100ms;
+    animation-timing-function: ease-out;
+  }
+  
+  .menuAnimation-enter {
+    animation-name: menu-enter;
+  }
+  
+  .menuAnimation-leave {
+    animation-name: menu-leave;
+  }

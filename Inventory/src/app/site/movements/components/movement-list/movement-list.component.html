@@ -1,0 +1,303 @@
+<div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:pl-72">
+
+
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div class="flex flex-col">
+      <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+          <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+
+            <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+              <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-600 dark:text-gray-200">
+                  Movimientos
+                </h2>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  Revisa el listado de movimientos, accede a sus detalles y crea nuevos movimientos.
+                </p>
+              </div>
+  
+              <div>
+                <div class="inline-flex gap-x-2">
+                  <a class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" routerLink="add-movement">
+                    <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Nuevo movimiento
+                  </a>
+                </div>
+              </div>
+              
+            </div>
+
+
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <thead class="bg-gray-50 dark:bg-slate-900">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Folio de operación
+                      </span>
+                      <div class="hs-tooltip">
+                        <div class="hs-tooltip-toggle">
+                          <svg class="w-3.5 h-3.5 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                          </svg>
+                          <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-sm dark:bg-slate-700" role="tooltip">
+                            Número de rastreo
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+  
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Total
+                      </span>
+                    </div>
+                  </th>
+  
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        TIPO DE MOVIMIENTO
+                      </span>
+                    </div>
+                  </th>
+  
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Fecha de creación
+                      </span>
+                    </div>
+                  </th>
+  
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Fecha de fin estimada
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Responsable
+                      </span>
+                    </div>
+                  </th>
+  
+                  <th scope="col" class="px-6 py-3 text-right"></th>
+                </tr>
+              </thead>
+  
+              <tbody class="divide-y divide-gray-200 dark:divide-gray-700" *ngIf="movementList">
+                <tr class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800" *ngFor="let item of movementList;">
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block">
+                      <div class="px-6 py-2">
+                        <span class="font-mono text-sm text-blue-600 dark:text-blue-500">#ADUQ2189H1-00{{item.movementID}}</span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block">
+                      <div class="px-6 py-2">
+                        <span class="text-sm text-gray-600 dark:text-gray-400">MXN ${{calculateTotalPrice(item)}}</span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block">
+                      <div class="px-6 py-2">
+                        <span *ngIf="item.kindOfMovement" class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-indigo-500 text-white">
+                      
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                            <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                          </svg>
+                          ENTRADA</span>
+                        <span *ngIf="!item.kindOfMovement" class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                          </svg>
+                          SALIDA</span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block">
+                      <div class="px-6 py-2">
+                        <span class="text-sm text-gray-600 dark:text-gray-400">{{formatReadableDate(item.createdAt)}}</span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block">
+                      <div class="px-6 py-2">
+                        <span class="text-sm text-gray-600 dark:text-gray-400">{{formatReadableDate(item.scheduledBy)}}</span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block">
+                      <div class="px-6 py-2">
+                        <span class="text-sm text-gray-600 dark:text-gray-400">{{item.firstName+' '+item.lastName}}</span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block cursor-pointer" (click)="OpenDetails(item)" data-hs-overlay="#hs-ai-offcanvas">
+                      <div class="px-6 py-1.5">
+                        <div class="py-1 px-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white">
+                          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z"/>
+                            <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
+                          </svg>
+                          Detalles
+                        </div>
+                      </div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
+              <div>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  <span class="font-semibold text-gray-800 dark:text-gray-200">{{movementList.length}}</span> resultados
+                </p>
+              </div>
+  
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hs-ai-offcanvas" *ngIf="isOnMovementPage" class="hs-overlay [--body-scroll:true] hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 right-0 transition-all duration-300 transform h-full max-w-md w-full z-[60] bg-white border-r dark:bg-gray-800 dark:border-gray-700" tabindex="-1">
+    <div class="relative overflow-hidden min-h-[8rem] text-center bg-no-repeat bg-center">
+      <div class="absolute top-2 right-2">
+        <button type="button" class="py-1.5 px-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-xs dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-overlay="#hs-ai-offcanvas">
+          Cerrar
+        </button>
+      </div>
+
+      <figure class="absolute inset-x-0 bottom-0">
+        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
+          <path fill="currentColor" class="fill-white dark:fill-gray-800" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+        </svg>
+      </figure>
+    </div>
+
+    <div class="relative z-10 -mt-12">
+      <span class="mx-auto flex justify-center items-center w-[62px] h-[62px] rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+          <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="p-4 sm:p-7 overflow-y-auto">
+      <div class="text-center">
+        <h3 *ngIf="actualMovement?.kindOfMovement" class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          DETALLES DE ENTRADA
+        </h3>
+        <h3 *ngIf="!actualMovement?.kindOfMovement" class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          DETALLES DE SALIDA
+        </h3>
+        <p class="text-sm text-gray-500">
+          Operación #ADUQ2189H1-00{{actualMovement?.movementID}}
+        </p>
+      </div>
+
+      <div class="mt-5 sm:mt-10 grid grid-cols-2 sm:grid-cols-3 gap-5">
+        <div>
+          <span class="block text-xs uppercase text-gray-500">Asignó:</span>
+          <span class="block text-sm font-medium text-gray-800 dark:text-gray-200">{{actualMovement?.firstName}} {{actualMovement?.lastName}}</span>
+        </div>
+
+        <div>
+          <span class="block text-xs uppercase text-gray-500">Creada:</span>
+          <span class="block text-sm font-medium text-gray-800 dark:text-gray-200">{{formatReadableDate(actualMovement?.createdAt)}}</span>
+        </div>
+
+        <div>
+          <span class="block text-xs uppercase text-gray-500">Fin estimado:</span>
+          <span class="block text-sm font-medium text-gray-800 dark:text-gray-200">{{formatReadableDate(actualMovement?.scheduledBy)}}</span>
+        </div>
+
+      </div>
+
+      <div class="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+        <h4 class="text-sm font-semibold uppercase text-blue-500 dark:text-gray-200">Dirección origen</h4>
+        <div class="flex items-center gap-x-4 mb-3">
+          <div class="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-blue-600 dark:text-blue-400 bi bi-send-plus-fill" viewBox="0 0 16 16">
+              <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47L15.964.686Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+              <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
+            </svg>
+          </div>
+          <div class="flex-shrink-0">
+            <h3 *ngIf="actualMovement?.fromLocationID" class="block text-lg font-semibold text-gray-800 dark:text-white">{{actualMovement?.fromdescription}}</h3>
+            <h3 *ngIf="!actualMovement?.fromLocationID" class="block text-lg font-semibold text-gray-800 dark:text-white">No registrada</h3>
+          </div>
+        </div>
+        <p *ngIf="actualMovement?.fromLocationID" class="text-gray-600 dark:text-gray-400">{{actualMovement?.fromAddressLine}},{{actualMovement?.fromZipCode}}, {{actualMovement?.fromState}}, {{actualMovement?.fromCity}}</p>
+      </div>
+      <hr>
+      <div class="w-full h-full bg-white shadow-lg rounded-lg p-5 dark:bg-slate-900">
+        <h4 class="text-sm font-semibold uppercase text-blue-500 dark:text-gray-200">Dirección destino</h4>
+        <div class="flex items-center gap-x-4 mb-3">
+          <div class="inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-blue-600 dark:text-blue-400 bi bi-pin-map-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+              <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+            </svg>
+          </div>
+          <div class="flex-shrink-0">
+            <h3 *ngIf="actualMovement?.toLocationID" class="block text-lg font-semibold text-gray-800 dark:text-white">{{actualMovement?.todescription}}</h3>
+            <h3 *ngIf="!actualMovement?.toLocationID" class="block text-lg font-semibold text-gray-800 dark:text-white">No registrada</h3>
+          </div>
+        </div>
+        <p *ngIf="actualMovement?.toLocationID" class="text-gray-600 dark:text-gray-400">{{actualMovement?.toAddressLine}},{{actualMovement?.toZipCode}}, {{actualMovement?.toState}}, {{actualMovement?.toCity}}</p>
+      </div>
+
+      <div class="mt-5 sm:mt-10">
+        <h4 class="text-lg font-semibold uppercase text-blue-500 dark:text-gray-200">PRODUCTOS</h4>
+
+        <ul class="mt-3 flex flex-col">
+          <li *ngFor="let item of actualMovement?.movementDetails" class="inline-flex items-center gap-x-2 py-3 px-4 text-sm border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-gray-700 dark:text-gray-200">
+            <div class="flex items-center justify-between w-full">
+              <div>
+                <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">{{item.name}} - (${{item.unitPrice}}) x {{item.quantity}}</span>
+                <span class="block text-sm text-gray-500">{{item.brand}} | {{item.model}}</span>
+              </div>
+              <span>${{item.totalPrice}}</span>
+            </div>
+          </li>
+          <li class="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-semibold bg-gray-50 border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-slate-800 dark:border-gray-700 dark:text-gray-200">
+            <div class="flex items-center justify-between w-full">
+              <span>Monto total</span>
+              <span>MXN ${{calculateTotalPrice(actualMovement)}}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- offcanva -->
+
+  
+
+</div>

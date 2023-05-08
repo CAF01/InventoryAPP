@@ -1,0 +1,193 @@
+<div class="w-full mb-80 pt-10 px-4 sm:px-6 md:px-8 lg:pl-72">
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div class="flex flex-col">
+      <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+          <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+            <div class="px-6 py-4 grid gap-3 md:items-center border-b border-gray-200 dark:border-gray-700">
+              <div class="mb-2 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-600 dark:text-gray-200">
+                  Direcciones registradas
+                </h2>
+              </div>
+            </div>
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <thead class="bg-gray-50 dark:bg-slate-800">
+                <tr>
+
+                    <th scope="col" class="px-6 py-3 text-left">
+                        <a class="group inline-flex items-center gap-x-2" href="#">
+                          <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                            Sitio
+                          </span>
+                        </a>
+                    </th>  
+  
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <a class="group inline-flex items-center gap-x-2" href="#">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Dirección
+                      </span>
+                    </a>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <a class="group inline-flex items-center gap-x-2" href="#">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Código Postal
+                      </span>
+                    </a>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <a class="group inline-flex items-center gap-x-2" href="#">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        País
+                      </span>
+                    </a>
+                  </th>
+  
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <a class="group inline-flex items-center gap-x-2" href="#">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Estado
+                      </span>
+                    </a>
+                  </th>
+  
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <a class="group inline-flex items-center gap-x-2" href="#">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Ciudad
+                      </span>
+                    </a>
+                  </th>
+  
+                  <th scope="col" class="px-6 py-3 text-right"></th>
+                </tr>
+              </thead>
+  
+              <tbody class="divide-y divide-gray-200 dark:divide-gray-700" *ngIf="locationsList && locationsList.length>0">
+                
+                <tr class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800" *ngFor="let item of locationsList;">
+                    <td class="h-px w-px whitespace-nowrap">
+                        <a class="block relative z-10" href="javascript:void(0);">
+                          <div class="px-6 py-2">
+                            <span class="inline-flex items-center gap-1.5 py-1 px-2 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                              {{item.description}}
+                            </span>
+                          </div>
+                        </a>
+                      </td>
+
+                      <td class="h-px w-72 min-w-[18rem]">
+                        <a class="block relative z-10" href="javascript:void(0);">
+                          <div class="px-6 py-2">
+                            <p class="text-sm text-gray-500">{{item.addressLine}}</p>
+                          </div>
+                        </a>
+                      </td>
+                  
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block relative z-10" href="javascript:void(0);">
+                      <div class="px-6 py-2">
+                        <span class="inline-flex items-center gap-1.5 py-1 px-2 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                          {{item.zipCode}}
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+
+                  <td class="h-px w-auto whitespace-nowrap">
+                    <div class="px-6 py-2 flex items-center gap-x-3">
+                      <a class="flex items-center gap-x-2" href="javascript:void(0);">
+                        <img class="w-4 h-4" src="https://job-list-web-2635.vercel.app/assets/fonts/flag-icon-css/flags/4x3/mx.svg" alt="">
+                        <span class="text-sm text-blue-600 decoration-2 hover:underline dark:text-blue-500">México</span>
+                      </a>
+                    </div>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block relative z-10" href="javascript:void(0);">
+                      <div class="px-6 py-2">
+                        <span class="inline-flex items-center gap-1.5 py-1 px-2 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                          {{item.state}}
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <a class="block relative z-10" href="javascript:void(0);">
+                      <div class="px-6 py-2">
+                        <span class="inline-flex items-center gap-1.5 py-1 px-2 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                          {{item.city}}
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <div class="px-6 py-1.5">
+                      <button type="button" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-full border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" data-hs-overlay="#hs-modal-signup" (click)="viewDetails(item)">
+                        Editar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="hs-modal-signup" class="hs-overlay hidden w-full h-full fixed top-0 left-0 z-[60] overflow-x-hidden overflow-y-auto">
+    <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+      <div class="bg-white rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200">
+            Modificar ubicación
+          </h2>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Actualiza los cambios que requieras.
+          </p>
+        </div>
+  
+        <form [formGroup]="form">
+          <div class="py-6 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700">
+            <label for="af-payment-billing-contact" class="inline-block text-sm font-medium dark:text-white">
+              Descripción
+            </label>
+  
+            <div class="mt-2 space-y-3">
+              <input id="af-payment-billing-contact" formControlName="Description" type="text" class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Bodega 3">
+            </div>
+          </div>
+
+          <div class="py-6 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700">
+            <label for="af-payment-billing-address" class="inline-block text-sm font-medium dark:text-white">
+              Dirección
+            </label>
+  
+            <div class="mt-2 space-y-3">
+              <input id="af-payment-billing-address" autocomplete="address-line1" formControlName="LineAddress" type="text" class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Línea de dirección">
+              <input type="text" class="py-2 px-3 pr-11 block w-full border-gray-300 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" value="México" disabled>
+              <div class="sm:flex gap-3">
+                <input type="text" autocomplete="home" formControlName="State" class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Estado">
+                <input type="text" autocomplete="shipping" formControlName="City" class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Ciudad">
+                <input type="text" autocomplete="postal-code" formControlName="ZipCode" class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Código Postal">
+              </div>
+            </div>
+          </div>
+          
+        </form>
+  
+        <div class="mt-10 flex justify-end gap-x-2">
+          <button type="button" (click)="UpdateLocation()" [disabled]="form.invalid" class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 disabled:bg-gray-400 disabled:text-gray-500 disabled:cursor-not-allowed">
+            Agregar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

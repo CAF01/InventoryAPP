@@ -1,0 +1,64 @@
+<div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:pl-72">
+    <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="bg-white rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-blue-600 dark:text-gray-200">
+        Agregar marca
+      </h2>
+      <p class="text-sm text-gray-600 mt-2 dark:text-gray-400">
+        Completa el siguiente formulario.
+      </p>
+    </div>
+
+    <form [formGroup]="form">
+      <div class="grid grid-cols-12 gap-4 sm:gap-6">
+        <div class="col-span-3">
+          <label class="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200">
+            Imagen de referencia
+          </label>
+        </div>
+
+        <div class="col-span-9">
+          <div class="flex items-center gap-5">
+            <div class="flex gap-x-2">
+                <label class="block">
+                    <span class="sr-only">Elegir imagen</span>
+                    <input type="file" (change)="loadImage($event)" accept="image/*" class="block w-full text-sm text-gray-500
+                      file:mr-4 file:py-2 file:px-4
+                      file:rounded-md file:border-0
+                      file:text-sm file:font-semibold
+                      file:bg-blue-500 file:text-white
+                      hover:file:bg-blue-600
+                    "/>
+                  </label>
+            </div>
+            <div class="flex gap-x-2">
+              <button type="button" [disabled]="!validImage || imageUplaoded" (click)="uploadImage()" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md bg-indigo-100 border border-transparent font-semibold text-indigo-500 hover:text-white hover:bg-indigo-100 focus:outline-none focus:ring-2 ring-offset-white focus:ring-indigo-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+                Subir imagen
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-span-3">
+          <label for="brand-name" class="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200">
+            Nombre de marca
+          </label>
+        </div>
+
+        <div class="col-span-9">
+          <input id="brand-name" formControlName="descripcion" type="text" class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Goldman Sachs">
+        </div>
+
+      </div>
+
+      <div class="mt-5 flex justify-end gap-x-2">
+        <button [disabled]="form.invalid || !imageUplaoded" (click)="addBrand()" type="button" class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 disabled:bg-gray-400 disabled:text-gray-500 disabled:cursor-not-allowed">
+          Agregar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
