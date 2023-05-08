@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   initLoginForm() {
     this.loginForm = this.fb.group({
-      email: ['generic-email@example.com', Validators.required],
+      email: ['eduardo.sarabia@grupologa.com', Validators.required],
       password: ['hire_me_please', Validators.required],
     });
   }
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     this.isProcessing=true;
 
     let data :LoginUserRequest = {} as LoginUserRequest;
-    data.email='jose.lopez@grupologa.com';
+    data.email='eduardo.sarabia@grupologa.com';
     data.password='Abcd1234';
     this.accountService.loginUser(data).subscribe(async (response: LoginUserResponse)=>
       {

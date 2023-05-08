@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     loop: true
   };
 
-  public isLoading$ : any;
+  public isLoading$ = this.loadingService.spinnerVisible$;
 
   constructor(private loadingService: LoadLottieService) {}
   

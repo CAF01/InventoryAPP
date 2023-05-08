@@ -34,7 +34,6 @@ export class DashboardComponent implements OnInit {
     });
     this.movementsService.GetSalesByCategory().subscribe((data) => {
       this.categoryPopularity = data;
-      console.log(data);
     });
   }
 
