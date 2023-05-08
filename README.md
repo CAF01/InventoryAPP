@@ -29,10 +29,10 @@ Añade nuevos productos al catálogo
 Gestiona las marcas que tienes disponibles
 ![image](https://user-images.githubusercontent.com/68396707/236782882-bc7889c1-50cb-4d08-88db-1250041be2b4.png)
 
-##Categorias
+## Categorias
 ![image](https://user-images.githubusercontent.com/68396707/236783024-b126f20f-b6b3-4578-b432-65e27ad0027b.png)
 
-##Ubicaciones
+## Ubicaciones
 ![image](https://user-images.githubusercontent.com/68396707/236783096-a7b99c63-ca4b-4f88-924f-fcb9b6db7d84.png)
 
 Configuración necesaria para appsettings.json
