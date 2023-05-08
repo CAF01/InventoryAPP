@@ -239,7 +239,7 @@ export class AddMovementComponent implements OnInit {
       if(res.movementID>0)
       {
         this.toastr.success('Movimiento agregado correctamente');
-        this.router.navigate(['/movements']);
+        this.router.navigate(['/home/movements']);
         this.reset();
       }
     });
