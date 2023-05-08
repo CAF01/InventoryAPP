@@ -4,7 +4,11 @@ module.exports = {
   content: ["./src/**/*.{html,js}",
   './node_modules/preline/dist/*.js'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'login': "url('src/assets/images/high.png')",
+      }
+    },
   },
   plugins: [
     require('preline/plugin'),
